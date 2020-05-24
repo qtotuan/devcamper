@@ -1,10 +1,12 @@
 const express = require('express')
 const {
   getReviews,
-  getReview
+  getReview,
+  addReview
 } = require('../controllers/reviews')
 const advancedResults = require('../middleware/advancedResults')
 const Review = require('../models/Review')
+const { protect, authorize } = require('../middleware/auth')
 
 const router = express.Router({ mergeParams: true })
 
@@ -14,6 +16,7 @@ router
     path: 'bootcamp',
     select: 'name description'
   }), getReviews)
+  .post(protect, authorize('user', 'admin'), addReview)
 
 router
   .route('/:id')
