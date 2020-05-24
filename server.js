@@ -10,6 +10,7 @@ const connectDB = require('./config/db')
 const mongoSanitize = require('express-mongo-sanitize')
 const helmet = require('helmet')
 const xssClean = require('xss-clean')
+const hpp = require('hpp')
 
 // Load env vars
 dotenv.config({ path: './config/config.env' })
@@ -47,6 +48,8 @@ app.use(helmet())
 // Prevent xss attacks
 app.use(xssClean())
 
+// Prevent http param pollution
+app.use(hpp())
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')))
 
