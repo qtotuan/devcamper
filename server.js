@@ -12,6 +12,7 @@ const helmet = require('helmet')
 const xssClean = require('xss-clean')
 const rateLimit = require("express-rate-limit")
 const hpp = require('hpp')
+const cors = require('cors')
 
 // Load env vars
 dotenv.config({ path: './config/config.env' })
@@ -62,6 +63,9 @@ app.use(hpp())
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')))
+
+// Enable cors
+app.use(cors())
 
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps)
