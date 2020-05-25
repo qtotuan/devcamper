@@ -35,3 +35,6 @@ node seeder -d
 # Import all data
 node seeder -i
 ```
+
+- Version: 1.0.0
+- Licence: MIT
