@@ -4,7 +4,7 @@ const CourseSchema = new mongoose.Schema({
   title: {
     type: String,
     trim: true,
-    required: [ true, 'Please add a course title' ]
+    required: [true, 'Please add a course title']
   },
   description: {
     type: String,
@@ -81,4 +81,3 @@ CourseSchema.pre('remove', async function () {
 })
 
 module.exports = mongoose.model('Course', CourseSchema)
-

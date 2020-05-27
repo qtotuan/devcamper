@@ -10,12 +10,12 @@ test('Login: requires email and user', t => {
 
     const mockReq = {
       body: {
-        email: "foo@bar.de"
+        email: 'foo@bar.de'
       }
     }
-  
+
     login(mockReq, {}, spy)
-  
+
     t.true(spy.called)
     t.equals(spy.args[0][0].name, 'Error', 'Next() was called with an error')
     t.equals(spy.args[0][0].statusCode, 400, 'Next() was called with 400 status code')
@@ -27,12 +27,12 @@ test('Login: requires email and user', t => {
 
     const mockReq = {
       body: {
-        password: "123456"
+        password: '123456'
       }
     }
-  
+
     login(mockReq, {}, spy)
-  
+
     t.true(spy.called)
     t.equals(spy.args[0][0].name, 'Error', 'Next() was called with an error')
     t.equals(spy.args[0][0].statusCode, 400, 'Next() was called with 400 status code')

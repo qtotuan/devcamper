@@ -1,10 +1,10 @@
 const fs = require('fs')
 const mongoose = require('mongoose')
-const colors = require('colors')
+const colors = require('colors') // eslint-disable-line no-unused-vars
 const dotenv = require('dotenv')
 
 // Load env vars
-dotenv.config({ path: './config/config.env'})
+dotenv.config({ path: './config/config.env' })
 
 // Load models
 const Bootcamp = require('./models/Bootcamp')
@@ -33,10 +33,10 @@ const importData = async function () {
     await Course.create(courses)
     await User.create(users)
     await Review.create(reviews)
-    console.log('Data imported'.green.inverse);
+    console.log('Data imported'.green.inverse)
     process.exit()
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
 
@@ -47,10 +47,10 @@ const deleteData = async function () {
     await Course.deleteMany()
     await User.deleteMany()
     await Review.deleteMany()
-    console.log('Data deleted'.yellow.inverse);
+    console.log('Data deleted'.yellow.inverse)
     process.exit()
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
 

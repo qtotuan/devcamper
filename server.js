@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
-const colors = require('colors')
+const colors = require('colors') // eslint-disable-line no-unused-vars
 const fileupload = require('express-fileupload')
 const cookieParser = require('cookie-parser')
 const errorHandler = require('./middleware/error')
@@ -10,7 +10,7 @@ const connectDB = require('./config/db')
 const mongoSanitize = require('express-mongo-sanitize')
 const helmet = require('helmet')
 const xssClean = require('xss-clean')
-const rateLimit = require("express-rate-limit")
+const rateLimit = require('express-rate-limit')
 const hpp = require('hpp')
 const cors = require('cors')
 
@@ -36,7 +36,7 @@ app.use(express.json())
 app.use(cookieParser())
 
 if (process.env.NODE_ENV === 'development') {
-    app.use(morgan('dev'))
+  app.use(morgan('dev'))
 }
 
 app.use(fileupload())
@@ -52,8 +52,8 @@ app.use(xssClean())
 
 // Rate limiting
 const limiter = rateLimit({
-    windowMs: 10 * 60 * 1000, // 10 minutes
-    max: 100 // limit each IP to 100 requests per windowMs
+  windowMs: 10 * 60 * 1000, // 10 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
 })
 
 app.use(limiter)
@@ -82,8 +82,8 @@ const server = app.listen(PORT, console.log(`Server running in ${process.env.NOD
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err, promise) => {
-    console.log(`Error: ${err.message}`.red)
+  console.log(`Error: ${err.message}`.red)
 
-    // Close server and exit promise
-    server.close(() => process.exit(1))
+  // Close server and exit promise
+  server.close(() => process.exit(1))
 })

@@ -92,7 +92,7 @@ exports.updateCourse = asyncHandler(async (req, res, next) => {
     success: true,
     data: course
   })
-}) 
+})
 
 // @desc    Delete a course
 // @route   DELETE /api/v1/courses/:id

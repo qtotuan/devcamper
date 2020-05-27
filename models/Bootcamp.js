@@ -7,11 +7,11 @@ const BootcampSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add a name'],
     unique: true,
-    trim: true, 
+    trim: true,
     maxlength: [50, 'Name can not be more than 50 characters']
   },
   slug: String,
-  description: { 
+  description: {
     type: String,
     required: [true, 'Please add a description'],
     maxlength: [500, 'Description can not be more than 500 characters']
@@ -19,7 +19,7 @@ const BootcampSchema = new mongoose.Schema({
   website: {
     type: String,
     match: [
-      /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
+      /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/, // eslint-disable-line
       'Please use a valid URL with HTTP or HTTPS'
     ]
   },
@@ -30,7 +30,7 @@ const BootcampSchema = new mongoose.Schema({
   email: {
     type: String,
     match: [
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, // eslint-disable-line
       'Please add a valid email'
     ]
   },
@@ -119,7 +119,7 @@ BootcampSchema.pre('save', async function (next) {
   const loc = await geoCoder.geocode(this.address)
   this.location = {
     type: 'Point',
-    coordinates: [ loc[0].longitude, loc[0].latitude ],
+    coordinates: [loc[0].longitude, loc[0].latitude],
     formattedAddress: loc[0].formattedAddress,
     street: loc[0].streetName,
     city: loc[0].city,

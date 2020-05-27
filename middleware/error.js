@@ -10,13 +10,13 @@ const errorHandler = function (err, req, res, next) {
 
   // Mongoose bad object ID
   if (err.name === 'CastError') {
-    const message = `Resource not found`
+    const message = 'Resource not found'
     error = new ErrorResponse(message, 404)
   }
 
   // Mongoose duplicate key
   if (err.code === 11000) {
-    const message = `Duplicate field value entered.`
+    const message = 'Duplicate field value entered.'
     error = new ErrorResponse(message, 400)
   }
 

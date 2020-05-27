@@ -4,7 +4,7 @@ const ReviewSchema = new mongoose.Schema({
   title: {
     type: String,
     trim: true,
-    required: [ true, 'Please add a title for the review' ],
+    required: [true, 'Please add a title for the review'],
     maxlength: 100
   },
   text: {
@@ -70,4 +70,3 @@ ReviewSchema.pre('remove', async function () {
 })
 
 module.exports = mongoose.model('Review', ReviewSchema)
-

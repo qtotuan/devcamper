@@ -3,7 +3,7 @@ const {
   register,
   login,
   getMe,
-  forgotPassword, 
+  forgotPassword,
   resetPassword,
   updateDetails,
   updatePassword,
