@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node server",
     "dev": "nodemon server",
-    "test": "NODE_ENV=test npx standard --fix && node ./tests/**/*.js | tap-spec",
+    "test": "node ./tests/test-runner.js",
     "tdd": "nodemon -x node ./tests/tdd-runner.js"
   },
   "author": "Quynh To Tuan",
